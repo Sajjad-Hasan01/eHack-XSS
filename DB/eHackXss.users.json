@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "6581966fab9eda8dcd8424ff"
+  },
+  "username": "ehack",
+  "password": "202cb962ac59075b964b07152d234b70",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658198ed746ec813d75889f0"
+  },
+  "username": "{\"$gt\":\"\"}",
+  "password": "202cb962ac59075b964b07152d234b70",
+  "__v": 0
+}]

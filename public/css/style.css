@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -20,7 +20,8 @@ nav * {
     margin-inline-end: 1rem;
     padding: .5rem;
     border-radius: 8px;
-    &:hover{
+
+    &:hover {
         background-color: hsl(220, 20%, 40%);
     }
 }
@@ -41,7 +42,8 @@ form {
     }
 }
 
-input, button{
+input,
+button {
     width: 100%;
     height: 3rem;
     border-radius: 8px;
@@ -54,7 +56,7 @@ input, button{
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-button{
+button {
     margin-top: 2rem;
     height: 4rem;
     background-color: #b193f1;
@@ -62,13 +64,13 @@ button{
     cursor: pointer;
 }
 
-.comments>div{
+.comments>div {
     border: 1px solid #eee;
     border-radius: 8px;
     padding: 1rem;
     margin-block: .5rem;
 
-    &:hover{
+    &:hover {
         background-color: rgba(255, 255, 255, 0.1);
     }
 }

