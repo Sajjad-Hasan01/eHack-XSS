@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/signup">Signup</a>
+        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    
+    <h1>Login</h1>
+    <form id="loginform" action="api/login" method="post">
+        <label>Username</label>
+        <input id="username" name="username" type="text" required/>
+        <label>Password</label>
+        <input id="password" name="password" type="text" required/>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('loginform');
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const API = 'http://localhost:3000/';
+        form.addEventListener('submit', (e) => login(e))
+        async function login(e){
+            e.preventDefault();
+            if (username.value == "" || password.value == "") { return }
+            let u = username.value.toLowerCase();
+            const res = await fetch(API + 'api/login',{
+                method:'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username: u,
+                    password: password.value
+                })
+            })
+            const data = await res.json()
+            alert(data.msg);
+
+            // const errorMsg = document.createTextNode(`${data.username} : ${data.password}`)
+            // const label = document.createElement("label")
+            // label.appendChild(errorMsg)
+            // form.appendChild(label)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Hack</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/signup">Signup</a>
+        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    
+    <h1>Home</h1>
+
+    <form action="http://localhost:3000/api/addcomment" method="post" id="commentform">
+        <input type="text" name="comment" id="comment" placeholder="write here...">
+        <button type="submit">Add Comment</button>
+    </form>
+
+    <div class="comments" id="commentsContainer">
+        <script>
+            const form = document.getElementById('commentform');
+            const commentsContainer = document.getElementById('commentsContainer');
+            const input = document.getElementById('comment');
+            const API = 'http://localhost:3000/';
+
+            (async () => {
+                const res = await fetch(API + "api/comments",{method:'GET'});
+                const data = await res.json();
+                data.comments.map(({ comment }) => {
+                    const div = document.createElement("div");
+                    // const text = document.createTextNode(comment);
+                    // div.appendChild(text);
+                    div.innerHTML = comment;
+                    commentsContainer.appendChild(div);
+                })
+            })()
+
+            form.addEventListener('submit', (e) => signUp(e))
+            async function signUp(e){
+                e.preventDefault();
+                if (input.value == "" ) { return }
+                const res = await fetch(API + 'api/addcomment',{
+                    method:'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        comment: input.value
+                    })
+                })
+                if(res.redirected) window.location.replace(res.url);
+            }
+        </script>
+    </div>
+</body>
+</html>

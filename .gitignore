@@ -1,0 +1,10 @@
+# Logs
+logs
+*.log
+
+node_modules
+*.local
+# *.env
+
+# Test-Code Files
+*.txt
